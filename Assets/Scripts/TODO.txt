@@ -1,0 +1,14 @@
+play sound when grabbing the cup
+reduce speed 
+play system particle
+large explosion 
+dust particle AFTR CUP
+gate spawns or changes material??? -> and activate animations
+put fans on pyramid
+remove hurt me 
+make everyone carve
+make cup shiney with light or particles
+
+
+->>> second part???
+

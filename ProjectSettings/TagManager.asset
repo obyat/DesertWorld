@@ -35,6 +35,8 @@ TagManager:
   - police
   - Fire
   - fan
+  - cup
+  - winningCup
   layers:
   - Default
   - TransparentFX

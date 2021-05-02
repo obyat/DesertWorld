@@ -1,4 +1,4 @@
-using System.Collections;
+    using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,6 +13,7 @@ public class ToonyTinyPeopleController : MonoBehaviour
     public string finalDest;
     public Rigidbody body = null;
     public float knockBackTime;
+    private int prev_dest = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -26,7 +27,7 @@ public class ToonyTinyPeopleController : MonoBehaviour
         ThisAgent.isStopped = false;
         ThisAgent.stoppingDistance = 2f;
         ThisAgent.speed = 8f;
-
+        prev_dest = 0;
         animator.SetBool("isMoving", true);
         knockBackTime = 2f;
     }
@@ -47,6 +48,9 @@ public class ToonyTinyPeopleController : MonoBehaviour
         else if (ThisAgent.remainingDistance <= ThisAgent.stoppingDistance)
         {
             updateDest();
+            animator.SetBool("isMoving", true);
+            ThisAgent.Resume();
+
         }
     }
 
@@ -55,16 +59,19 @@ public class ToonyTinyPeopleController : MonoBehaviour
         nextIndex++;
         dest = "Dest" + nextIndex;
         Destinations = GameObject.FindGameObjectsWithTag(dest);
-        ThisAgent.SetDestination(Destinations[Random.Range(0,Destinations.Length)].transform.position);
+        prev_dest = Random.Range(0,Destinations.Length);
+        ThisAgent.SetDestination(Destinations[prev_dest].transform.position);
+
     }
 public void knockBack(Vector3 dir)
     {
-        ThisAgent.isStopped = true;
-        body.isKinematic = false;
-        ThisAgent.enabled = false;
-        body.AddForce(dir*100, ForceMode.Impulse);
-        knockBackTime = 0.1f;
-        animator.SetBool("isMoving", true);
+        // ThisAgent.isStopped = true;
+        // body.isKinematic = false;
+        // ThisAgent.enabled = false;
+        // body.AddForce(dir*100, ForceMode.Impulse);
+        // knockBackTime = 0.1f;
+        // animator.SetBool("isMoving", true);
+        ThisAgent.SetDestination(Destinations[prev_dest].transform.position);
 
     }
     private void OnTriggerEnter(Collider other)
@@ -76,6 +83,23 @@ public void knockBack(Vector3 dir)
             hitDirBot = hitDirBot.normalized;
             this.knockBack(hitDirBot);
             FindObjectOfType<PlayerController>().knockBackX(hitDirPlayer);
+
+        }
+
+        if(other.CompareTag("cup"))
+        {
+        GameObject found = new List<GameObject>(GameObject.FindGameObjectsWithTag("cup"))
+        .Find(g => g.transform.IsChildOf( this.transform));
+        found.GetComponent<Renderer>().enabled = true;
+    
+        ThisAgent.speed = ThisAgent.speed+100f;
+        other.GetComponent<Renderer>().enabled = false;
+        Debug.Log("AI Took cup!!");
+
+
+    if (other.gameObject.tag == "cup")
+          Destroy(other.gameObject);
+    
         }
     }
 }

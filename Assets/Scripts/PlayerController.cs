@@ -97,4 +97,25 @@ public class PlayerController : MonoBehaviour
     {
         enableInput = b;
     }
+    
+    
+
+        private void OnTriggerEnter(Collider other)
+    {
+
+       if(other.CompareTag("cup"))
+        {
+        GameObject found = new List<GameObject>(GameObject.FindGameObjectsWithTag("cup"))
+        .Find(g => g.transform.IsChildOf( this.transform));
+        found.GetComponent<Renderer>().enabled = true;
+        moveSpeed += 100f;
+        // ThisAgent.acceleration = ThisAgent.acceleration+100f;
+        other.GetComponent<Renderer>().enabled = false;
+        Debug.Log("Player Took cup!!");
+
+    if (other.gameObject.tag == "cup")
+          Destroy(other.gameObject);
+        }
+    }
+
 }

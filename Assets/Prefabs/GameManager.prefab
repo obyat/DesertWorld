@@ -1,0 +1,106 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5501277516687814255
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5501277516687814253}
+  - component: {fileID: 5501277516687814254}
+  - component: {fileID: 5501277516687814252}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5501277516687814253
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5501277516687814255}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 10.830403, y: 1.0008509, z: -3.2134335}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5501277516687814254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5501277516687814255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c9bafc7b4debf148b5f15a4f15c2192, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentGold: 0
+  goldText: {fileID: 0}
+  placementNum: 0
+  placement: {fileID: 0}
+  numOfBots: 0
+  botspoints: 000000000000000000000000000000000000000000000000000000000000000000000000
+  bots:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  blueSnake: {fileID: 2405751840342600820, guid: 8741bef1aac13344daaa740fbe61a614, type: 3}
+  greenSnake: {fileID: 5933513111648154163, guid: 30fd05305af76c44db31121292d13de7, type: 3}
+  numOfSnakes: 2
+  maxOfSnakes: 10
+  isBlue: 0
+  timer: {fileID: 0}
+  timerText: 61
+  startTimer: 0
+  startText:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  winText: {fileID: 962562493699329358, guid: da208d8630f3ff8459404fbedcfd2f5d, type: 3}
+  loseText: {fileID: 7655607723111953222, guid: 06ab46adf7c57f14aba156b5b7fb2f6a, type: 3}
+  player: {fileID: 0}
+  startGame: 0
+--- !u!114 &5501277516687814252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5501277516687814255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9de75cec49443c4880ad49674c63b49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHealth: 0
+  maxHealth: 1
+  thePlayer: {fileID: 0}
+  invincibiltyLength: 1
+  invincibilityCounter: 0
+  playerRender: {fileID: 0}
+  flashCounter: 0
+  flashLength: 0.1
+  respawnLength: 2
+  deathEffect: {fileID: 5112347861573384013, guid: db7ba7398033b624695c1700bbf55b2a, type: 3}
+  blackScreen: {fileID: 0}
+  fadeSpeed: 2
+  waitForFade: 1

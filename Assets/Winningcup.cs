@@ -7,17 +7,7 @@ public class Winningcup : MonoBehaviour
     public ParticleSystem fireworks;
     public AudioSource soruce;
     public GameObject psfireworks;
-    public ParticleSystem psglow;
+    public GameObject psglow;
+    public GameObject bridgeExplosion;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        psglow.Play();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

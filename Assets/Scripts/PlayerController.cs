@@ -117,8 +117,16 @@ public class PlayerController : MonoBehaviour
         GameObject ps = Instantiate(
            other.gameObject.GetComponent<Winningcup>().psfireworks,  other.gameObject.transform.position, 
            UnityEngine.Quaternion.LookRotation(transform.position));
+    
+        GameObject ps2 = Instantiate(
+           other.gameObject.GetComponent<Winningcup>().bridgeExplosion,  other.gameObject.transform.position, 
+           UnityEngine.Quaternion.LookRotation(transform.position));
 
         Destroy(other.gameObject);
+        }
+        if(other.CompareTag("bridge"))
+        {
+            other.gameObject.GetComponent<Renderer>().enabled=true;
         }
     }
 

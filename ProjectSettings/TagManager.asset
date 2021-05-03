@@ -39,6 +39,7 @@ TagManager:
   - winningCup
   - FxTemporaire
   - cupfireworks
+  - bridge
   layers:
   - Default
   - TransparentFX

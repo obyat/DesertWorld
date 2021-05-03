@@ -35,6 +35,7 @@ public class explode : MonoBehaviour
         bots.GetComponent<NavMeshAgent>().enabled = false;
         bots.AddComponent<Rigidbody>();
         Debug.Log("HIT BOT");
+        gameObject.GetComponent<Renderer>().enabled=true;
 
        bots.GetComponent<NavMeshAgent>().speed = 100f;//bots.GetComponent<NavMeshAgent>().velocity * 40 ;
        // bots.GetComponent<Rigidbody>().AddForce(-transform.forward*10, ForceMode.Impulse);

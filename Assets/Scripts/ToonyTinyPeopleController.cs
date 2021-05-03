@@ -109,9 +109,20 @@ public void knockBack(Vector3 dir)
         GameObject ps = Instantiate(
            other.gameObject.GetComponent<Winningcup>().psfireworks,  other.gameObject.transform.position, 
            UnityEngine.Quaternion.LookRotation(transform.position));
-        
-        Destroy(other.gameObject);
     
+        GameObject ps2 = Instantiate(
+           other.gameObject.GetComponent<Winningcup>().bridgeExplosion,  other.gameObject.transform.position, 
+           UnityEngine.Quaternion.LookRotation(transform.position));
+
+        Destroy(other.gameObject);
         }
+        
+        if(other.CompareTag("bridge"))
+        {
+            Debug.Log("BOT HIT BRIDGE");
+            other.gameObject.GetComponent<Renderer>().enabled=true;
+        }
+
+        
     }
 }

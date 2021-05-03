@@ -2,9 +2,6 @@ play system particle
 large explosion 
 gate spawns or changes material??? -> and activate animations
 put fans on pyramid
-remove reduce hurt me 
-make everyone carve
-make cup shiney with light or particles
 
 
 ->>> second part???

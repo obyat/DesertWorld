@@ -1,14 +1,20 @@
-play sound when grabbing the cup
-reduce speed 
 play system particle
 large explosion 
-dust particle AFTR CUP
 gate spawns or changes material??? -> and activate animations
 put fans on pyramid
-remove hurt me 
+remove reduce hurt me 
 make everyone carve
 make cup shiney with light or particles
 
 
 ->>> second part???
 
+get the final position after applying velocity from force?
+set that equal to destination?
+
+then reset destination
+
+or
+
+destination = current position
+destination = last destination

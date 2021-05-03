@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+[RequireComponent(typeof(Renderer))]
 public class tookCup  : MonoBehaviour
 {
    public Renderer rend;
@@ -9,9 +9,10 @@ public class tookCup  : MonoBehaviour
 
 
     private void Start() {
-        Renderer rend = gameObject.AddComponent<Renderer>() as Renderer;
+        if(gameObject.GetComponent<Renderer>()!=null){
         rend =  GetComponent<Renderer>();
         rend.enabled = false;
+        }
     }
     // Update is called once per frame
     void Update()

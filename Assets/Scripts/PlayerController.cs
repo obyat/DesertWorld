@@ -103,18 +103,22 @@ public class PlayerController : MonoBehaviour
         private void OnTriggerEnter(Collider other)
     {
 
-       if(other.CompareTag("cup"))
+       if(other.CompareTag("cup")  && other.gameObject !=null)
         {
         GameObject found = new List<GameObject>(GameObject.FindGameObjectsWithTag("cup"))
         .Find(g => g.transform.IsChildOf( this.transform));
         found.GetComponent<Renderer>().enabled = true;
-        moveSpeed += 100f;
+        moveSpeed += 10f;
         // ThisAgent.acceleration = ThisAgent.acceleration+100f;
         other.GetComponent<Renderer>().enabled = false;
         Debug.Log("Player Took cup!!");
+        GameObject.FindGameObjectWithTag("winningCup").GetComponent<AudioSource>().Play();
 
-    if (other.gameObject.tag == "cup")
-          Destroy(other.gameObject);
+        GameObject ps = Instantiate(
+           other.gameObject.GetComponent<Winningcup>().psfireworks,  other.gameObject.transform.position, 
+           UnityEngine.Quaternion.LookRotation(transform.position));
+
+        Destroy(other.gameObject);
         }
     }
 

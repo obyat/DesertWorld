@@ -37,6 +37,8 @@ TagManager:
   - fan
   - cup
   - winningCup
+  - FxTemporaire
+  - cupfireworks
   layers:
   - Default
   - TransparentFX

@@ -14,6 +14,7 @@ public class ToonyTinyPeopleController : MonoBehaviour
     public Rigidbody body = null;
     public float knockBackTime;
     private int prev_dest = 0;
+    private AudioSource trophySound;
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +31,7 @@ public class ToonyTinyPeopleController : MonoBehaviour
         prev_dest = 0;
         animator.SetBool("isMoving", true);
         knockBackTime = 2f;
+     
     }
 
     // Update is called once per frame
@@ -65,6 +67,13 @@ public class ToonyTinyPeopleController : MonoBehaviour
     }
 public void knockBack(Vector3 dir)
     {
+        /*
+        1. each agent has dest
+        2. each agent has their own dest updated
+
+        -> for all instances of agent -> dest = dest11
+
+        */
         // ThisAgent.isStopped = true;
         // body.isKinematic = false;
         // ThisAgent.enabled = false;
@@ -86,19 +95,22 @@ public void knockBack(Vector3 dir)
 
         }
 
-        if(other.CompareTag("cup"))
+        if(other.CompareTag("cup") && other.gameObject !=null )
         {
         GameObject found = new List<GameObject>(GameObject.FindGameObjectsWithTag("cup"))
         .Find(g => g.transform.IsChildOf( this.transform));
         found.GetComponent<Renderer>().enabled = true;
     
-        ThisAgent.speed = ThisAgent.speed+100f;
+        ThisAgent.speed += 10f;
         other.GetComponent<Renderer>().enabled = false;
         Debug.Log("AI Took cup!!");
-
-
-    if (other.gameObject.tag == "cup")
-          Destroy(other.gameObject);
+        GameObject.FindGameObjectWithTag("winningCup").GetComponent<AudioSource>().Play();
+        
+        GameObject ps = Instantiate(
+           other.gameObject.GetComponent<Winningcup>().psfireworks,  other.gameObject.transform.position, 
+           UnityEngine.Quaternion.LookRotation(transform.position));
+        
+        Destroy(other.gameObject);
     
         }
     }

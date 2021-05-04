@@ -21,12 +21,9 @@ public class FallingFloor : MonoBehaviour
     {
         initialPosition = transform.position;
         dropTimer = Random.Range(8f, 12f);
-        speed = 10;
+        speed = 2;
         bots = GameObject.FindGameObjectWithTag("bots");
-        // foreach (GameObject respawn in respawns)
-        // {
-        //     Instantiate(respawnPrefab, respawn.transform.position, respawn.transform.rotation);
-        // }
+ 
     }
 
 
@@ -34,8 +31,6 @@ public class FallingFloor : MonoBehaviour
     void Update()
     {
 
-        // if(bots.transform.position - transform.position < 5f)
-        // Also need z
         float policeX = bots.transform.position.x;
      //   Debug.Log("POL POST" + policeX);
         dropTimer -= Time.deltaTime;
@@ -57,14 +52,7 @@ public class FallingFloor : MonoBehaviour
         if(falling)
         {
             transform.Translate(Vector3.down* Time.deltaTime * speed);
-            if(Mathf.Abs(policeX - transform.position.x) < 0.1f)
-            {
-                bots.GetComponent<NavMeshAgent>().isStopped = true;
-                bots.GetComponent<Rigidbody>().isKinematic = false;
-                bots.GetComponent<NavMeshAgent>().enabled = false;
-                bots.GetComponent<Rigidbody>().AddForce(-transform.forward*10, ForceMode.Impulse);
-                Debug.Log("POLICE DIST   " + Mathf.Abs(policeX - transform.position.x));
-            }
+
         }
     }
 }

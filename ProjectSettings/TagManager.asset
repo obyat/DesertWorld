@@ -40,6 +40,8 @@ TagManager:
   - FxTemporaire
   - cupfireworks
   - bridge
+  - bridgeWater
+  - bridgeWater2
   layers:
   - Default
   - TransparentFX

@@ -28,6 +28,8 @@ public class PlayerController : MonoBehaviour
     {
         controller = GetComponent<CharacterController>();
         enableInput = false;
+
+
     }
 
     // Update is called once per frame
@@ -108,7 +110,7 @@ public class PlayerController : MonoBehaviour
         GameObject found = new List<GameObject>(GameObject.FindGameObjectsWithTag("cup"))
         .Find(g => g.transform.IsChildOf( this.transform));
         found.GetComponent<Renderer>().enabled = true;
-        moveSpeed += 10f;
+        moveSpeed += 8f;
         // ThisAgent.acceleration = ThisAgent.acceleration+100f;
         other.GetComponent<Renderer>().enabled = false;
         Debug.Log("Player Took cup!!");
@@ -122,11 +124,18 @@ public class PlayerController : MonoBehaviour
            other.gameObject.GetComponent<Winningcup>().bridgeExplosion,  other.gameObject.transform.position, 
            UnityEngine.Quaternion.LookRotation(transform.position));
 
+        GameObject ps3 = Instantiate(
+           other.gameObject.GetComponent<Winningcup>().portal,  other.gameObject.transform.position, 
+           UnityEngine.Quaternion.LookRotation(transform.position));
+
         Destroy(other.gameObject);
         }
         if(other.CompareTag("bridge"))
         {
             other.gameObject.GetComponent<Renderer>().enabled=true;
+
+
+
         }
     }
 

@@ -29,11 +29,7 @@ public class explode : MonoBehaviour
         
     }
     IEnumerator KnockBackfan(){
-        knockBackbool = true;
-        bots.GetComponent<NavMeshAgent>().isStopped = true;
-        bots.GetComponent<Rigidbody>().isKinematic = false;
-        bots.GetComponent<NavMeshAgent>().enabled = false;
-        bots.AddComponent<Rigidbody>();
+
         Debug.Log("HIT BOT");
         gameObject.GetComponent<Renderer>().enabled=true;
 
@@ -41,10 +37,7 @@ public class explode : MonoBehaviour
        // bots.GetComponent<Rigidbody>().AddForce(-transform.forward*10, ForceMode.Impulse);
 
      yield return new WaitForSeconds(0.2f);
-        knockBackbool = false;
-        bots.GetComponent<NavMeshAgent>().isStopped = false;
-        bots.GetComponent<Rigidbody>().isKinematic = true;
-        bots.GetComponent<NavMeshAgent>().enabled = true;
+
         
     }
 

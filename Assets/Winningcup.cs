@@ -9,5 +9,6 @@ public class Winningcup : MonoBehaviour
     public GameObject psfireworks;
     public GameObject psglow;
     public GameObject bridgeExplosion;
+    public GameObject portal;
 
 }

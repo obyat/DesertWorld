@@ -1,17 +1,9 @@
-play system particle
-large explosion 
-gate spawns or changes material??? -> and activate animations
-put fans on pyramid
-
-
-->>> second part???
-
-get the final position after applying velocity from force?
-set that equal to destination?
-
-then reset destination
-
-or
-
-destination = current position
-destination = last destination
+-maybe strm sound
+-ui? only one person can make it
+-change fire?
+-flying objects solution?
+-add more gates
+-why is pedistole stuck?
+more tornados
+quicksand sticks?
+ice material?

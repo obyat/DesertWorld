@@ -42,6 +42,8 @@ TagManager:
   - bridge
   - bridgeWater
   - bridgeWater2
+  - Gate
+  - SpeedWall
   layers:
   - Default
   - TransparentFX

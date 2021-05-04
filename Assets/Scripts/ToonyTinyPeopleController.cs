@@ -15,6 +15,9 @@ public class ToonyTinyPeopleController : MonoBehaviour
     public float knockBackTime;
     private int prev_dest = 0;
     private AudioSource trophySound;
+    private float ogSpeed;
+    private bool HasEnteredGate;
+    private bool HasEnteredSpeedGate;
 
     // Start is called before the first frame update
     void Start()
@@ -31,7 +34,10 @@ public class ToonyTinyPeopleController : MonoBehaviour
         prev_dest = 0;
         animator.SetBool("isMoving", true);
         knockBackTime = 2f;
-     
+        HasEnteredGate = false;
+        ogSpeed = ThisAgent.speed;
+        HasEnteredSpeedGate = false;
+
     }
 
     // Update is called once per frame
@@ -101,7 +107,7 @@ public void knockBack(Vector3 dir)
         .Find(g => g.transform.IsChildOf( this.transform));
         found.GetComponent<Renderer>().enabled = true;
     
-        ThisAgent.speed += 8f;
+        ThisAgent.speed = ogSpeed +  10f;
         other.GetComponent<Renderer>().enabled = false;
         Debug.Log("AI Took cup!!");
         GameObject.FindGameObjectWithTag("winningCup").GetComponent<AudioSource>().Play();
@@ -122,7 +128,17 @@ public void knockBack(Vector3 dir)
             Debug.Log("BOT HIT BRIDGE");
             other.gameObject.GetComponent<Renderer>().enabled=true;
         }
+        if(other.CompareTag("Gate") && !HasEnteredGate)
+        {
+            HasEnteredGate = true;
+            ThisAgent.speed = ogSpeed - 2.5f;  
+        }
+        if(other.CompareTag("SpeedWall") && !HasEnteredSpeedGate)
+        {
+            HasEnteredSpeedGate = true;
+            ThisAgent.speed = ogSpeed + 18.5f;
 
+        }
         
     }
 }

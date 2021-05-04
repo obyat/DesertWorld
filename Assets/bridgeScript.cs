@@ -5,6 +5,9 @@ using UnityEngine;
 public class bridgeScript : MonoBehaviour
 {
     public GameObject Bwater;
+    public GameObject Dlight1;
+    public GameObject Dlight2;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -16,6 +19,9 @@ public class bridgeScript : MonoBehaviour
         if(other.CompareTag("Player") || other.CompareTag("bots"))
         {
             Bwater.SetActive(true);
+            Dlight1.SetActive(false);
+            Dlight2.SetActive(false);
+
 
         }
     }

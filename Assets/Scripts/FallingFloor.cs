@@ -21,7 +21,7 @@ public class FallingFloor : MonoBehaviour
     {
         initialPosition = transform.position;
         dropTimer = Random.Range(8f, 12f);
-        speed = 2;
+        speed = 3;
         bots = GameObject.FindGameObjectWithTag("bots");
  
     }

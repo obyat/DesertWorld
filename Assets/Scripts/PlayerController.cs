@@ -20,14 +20,19 @@ public class PlayerController : MonoBehaviour
     public float knockBackForce;
     public float knockBackTime;
     private float knockBackCounter;
-
+            
     public bool enableInput;
+    private float ogSpeed;
+    private bool HasEnteredGate;
+    private bool HasEnteredSpeedGate;
 
     // Start is called before the first frame update
     void Start()
     {
         controller = GetComponent<CharacterController>();
         enableInput = false;
+        HasEnteredGate = false;
+        HasEnteredSpeedGate = false;
 
 
     }
@@ -80,6 +85,7 @@ public class PlayerController : MonoBehaviour
         {
             transform.position = new Vector3(99f, 19f, 161f);
         }
+        ogSpeed = moveSpeed;
     }
 
     public void knockBack(Vector3 dir)
@@ -110,7 +116,7 @@ public class PlayerController : MonoBehaviour
         GameObject found = new List<GameObject>(GameObject.FindGameObjectsWithTag("cup"))
         .Find(g => g.transform.IsChildOf( this.transform));
         found.GetComponent<Renderer>().enabled = true;
-        moveSpeed += 8f;
+        moveSpeed = ogSpeed + 8f;
         // ThisAgent.acceleration = ThisAgent.acceleration+100f;
         other.GetComponent<Renderer>().enabled = false;
         Debug.Log("Player Took cup!!");
@@ -133,8 +139,19 @@ public class PlayerController : MonoBehaviour
         if(other.CompareTag("bridge"))
         {
             other.gameObject.GetComponent<Renderer>().enabled=true;
+        }
 
+        if(other.CompareTag("Gate") && !HasEnteredGate)
+        {
+            HasEnteredGate = true;
+            moveSpeed = ogSpeed - 2.5f;
 
+        }
+
+        if(other.CompareTag("SpeedWall") && !HasEnteredSpeedGate)
+        {
+            HasEnteredSpeedGate = true;
+            moveSpeed = ogSpeed + 38.5f;
 
         }
     }

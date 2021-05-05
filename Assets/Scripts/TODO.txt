@@ -1,20 +1,12 @@
--maybe strm sound
--ui? only one person can make it
--change fire?
 
--add more gates
--why is pedistole stuck?
-more tornados
-quicksand sticks?
-ice material?
-
--flying objects solution
-solved -> have 3 walls and ceiling
--
-
-portal:
+1. portal:
 trigger on portal:
-    if other = player load beachworld
-    ELSE exit
-ui
-start 3 2 1
+    if other = player 
+        load beachworld
+    ELSE GameOver
+
+2. ui 0/1 Teleported
+
+3. start 1 2 3
+
+4. fix AI going back??? at dest12

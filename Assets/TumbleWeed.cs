@@ -8,7 +8,10 @@ public class TumbleWeed : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-     GetComponent<Rigidbody>().velocity = Random.onUnitSphere * speed; 
+    speed = Random.Range(10f, 100f);
+    
+    //Debug.Log("speed is:" +speed );
+    GetComponent<Rigidbody>().velocity = Random.onUnitSphere * speed; 
     GetComponent<Rigidbody>().AddRelativeForce(Random.onUnitSphere * speed);
     }
 

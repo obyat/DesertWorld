@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ToonyTinyPeopleController : MonoBehaviour
+public class ToonyTinyPeopleControllerd : MonoBehaviour
 {
     //Reference to nav mesh agent
 	private UnityEngine.AI.NavMeshAgent ThisAgent = null;
@@ -109,7 +109,7 @@ public void knockBack(Vector3 dir)
     
         ThisAgent.speed = ogSpeed +  10f;
         other.GetComponent<Renderer>().enabled = false;
-        Debug.Log("AI Took cup!!");
+       // Debug.Log("AI Took cup!!");
         GameObject.FindGameObjectWithTag("winningCup").GetComponent<AudioSource>().Play();
         
         GameObject ps = Instantiate(
@@ -125,7 +125,7 @@ public void knockBack(Vector3 dir)
         
         if(other.CompareTag("bridge"))
         {
-            Debug.Log("BOT HIT BRIDGE");
+           // Debug.Log("BOT HIT BRIDGE");
             other.gameObject.GetComponent<Renderer>().enabled=true;
         }
         if(other.CompareTag("Gate") && !HasEnteredGate)
@@ -136,7 +136,7 @@ public void knockBack(Vector3 dir)
         if(other.CompareTag("SpeedWall") && !HasEnteredSpeedGate)
         {
             HasEnteredSpeedGate = true;
-            ThisAgent.speed = ogSpeed + 18.5f;
+            ThisAgent.speed = ogSpeed + 38.5f;
 
         }
         

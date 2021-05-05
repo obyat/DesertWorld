@@ -1,9 +1,20 @@
 -maybe strm sound
 -ui? only one person can make it
 -change fire?
--flying objects solution?
+
 -add more gates
 -why is pedistole stuck?
 more tornados
 quicksand sticks?
 ice material?
+
+-flying objects solution
+solved -> have 3 walls and ceiling
+-
+
+portal:
+trigger on portal:
+    if other = player load beachworld
+    ELSE exit
+ui
+start 3 2 1

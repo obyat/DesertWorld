@@ -20,7 +20,7 @@ public class explode : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-                bots = GameObject.FindGameObjectWithTag("bots");
+        //bots = GameObject.FindGameObjectWithTag("bots");
     }
 
     // Update is called once per frame
@@ -33,7 +33,7 @@ public class explode : MonoBehaviour
         Debug.Log("HIT BOT");
         gameObject.GetComponent<Renderer>().enabled=true;
 
-       bots.GetComponent<NavMeshAgent>().speed = 100f;//bots.GetComponent<NavMeshAgent>().velocity * 40 ;
+       //bots.GetComponent<NavMeshAgent>().velocity * 40 ;
        // bots.GetComponent<Rigidbody>().AddForce(-transform.forward*10, ForceMode.Impulse);
 
      yield return new WaitForSeconds(0.2f);
@@ -46,7 +46,7 @@ private void OnTriggerEnter(Collider other)
 
         if(other.CompareTag("bots")){
             Debug.Log("hitfan");
-            StartCoroutine(KnockBackfan());
+
         }
 
 }

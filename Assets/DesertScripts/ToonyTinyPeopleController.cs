@@ -57,7 +57,7 @@ public class ToonyTinyPeopleController : MonoBehaviour
         {
             updateDest();
             animator.SetBool("isMoving", true);
-            ThisAgent.Resume();
+
 
         }
     }
@@ -107,7 +107,7 @@ public void knockBack(Vector3 dir)
         .Find(g => g.transform.IsChildOf( this.transform));
         found.GetComponent<Renderer>().enabled = true;
     
-        ThisAgent.speed = ogSpeed +  10f;
+        ThisAgent.speed = ogSpeed +  8f;
         other.GetComponent<Renderer>().enabled = false;
        // Debug.Log("AI Took cup!!");
         GameObject.FindGameObjectWithTag("winningCup").GetComponent<AudioSource>().Play();

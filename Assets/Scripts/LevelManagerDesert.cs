@@ -18,6 +18,7 @@ public class LevelManagerDesert : MonoBehaviour
 
     public GameObject winText;
     public GameObject loseText;
+    public GameObject DesertPortal;
 
     // Start is called before the first frame update
     void Start()
@@ -72,9 +73,10 @@ public class LevelManagerDesert : MonoBehaviour
             // pos.y += 3; 
             // pos.z += 4;
             Vector3 pos = other.transform.position;
+            Vector3 PortalPos = DesertPortal.transform.position;
             pos.y += 3; 
             pos.z += 4;
-            GameObject won = Instantiate(winText, pos, Quaternion.identity);
+            GameObject won = Instantiate(winText, PortalPos, Quaternion.identity);
         }
         if(other.CompareTag("bots")&&!hasEntered){
             qualifiedNum++;

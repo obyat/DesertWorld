@@ -44,6 +44,8 @@ TagManager:
   - bridgeWater2
   - Gate
   - SpeedWall
+  - Portal
+  - DesertPortal
   layers:
   - Default
   - TransparentFX

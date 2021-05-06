@@ -116,7 +116,7 @@ public class PlayerController : MonoBehaviour
         GameObject found = new List<GameObject>(GameObject.FindGameObjectsWithTag("cup"))
         .Find(g => g.transform.IsChildOf( this.transform));
         found.GetComponent<Renderer>().enabled = true;
-        moveSpeed = ogSpeed + 8f;
+        moveSpeed = ogSpeed + 1f;
         // ThisAgent.acceleration = ThisAgent.acceleration+100f;
         other.GetComponent<Renderer>().enabled = false;
         Debug.Log("Player Took cup!!");

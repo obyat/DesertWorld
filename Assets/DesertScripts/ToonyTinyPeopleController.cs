@@ -107,7 +107,7 @@ public void knockBack(Vector3 dir)
         .Find(g => g.transform.IsChildOf( this.transform));
         found.GetComponent<Renderer>().enabled = true;
     
-        ThisAgent.speed = ogSpeed +  8f;
+        ThisAgent.speed = ogSpeed +  1f;
         other.GetComponent<Renderer>().enabled = false;
        // Debug.Log("AI Took cup!!");
         GameObject.FindGameObjectWithTag("winningCup").GetComponent<AudioSource>().Play();

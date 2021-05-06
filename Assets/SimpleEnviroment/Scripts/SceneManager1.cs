@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SceneManager : MonoBehaviour {
+public class SceneManager1 : MonoBehaviour {
 	public GameObject sceneWorld;
 	private int actualMenuSnake = 0;
 	public bool GUI_ON = true;

@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour
     private float ogSpeed;
     private bool HasEnteredGate;
     private bool HasEnteredSpeedGate;
+    public AudioSource tornado;
 
     // Start is called before the first frame update
     void Start()
@@ -151,6 +152,7 @@ public class PlayerController : MonoBehaviour
         if(other.CompareTag("SpeedWall") && !HasEnteredSpeedGate)
         {
             HasEnteredSpeedGate = true;
+            tornado.Play();
             moveSpeed = ogSpeed + 38.5f;
 
         }
